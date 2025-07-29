@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPI Water Supply - Reliable Water Delivery in Accra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0077be;
+            --secondary: #00b4d8;
+            --accent: #E7FF00;
+            --dark: #003049;
+            --light: #f5f7fa;
+            --gray: #6c757d;
+            --gh-green: #006b3f;
+            --gh-yellow: #fcd116;
+            --gh-red: #ce1126;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--gh-green);
+        }
+
+        .logo span {
+            color: var(--gh-yellow);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--gh-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--gh-green);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gh-yellow);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .emergency-contact {
+            display: flex;
+            align-items: center;
+            background: var(--gh-yellow);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .emergency-contact:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(252, 209, 22, 0.4);
+        }
+
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 55, 94, 0.45), rgba(0, 77, 122, 0.9)),
+                        url('images/hero.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h1 span {
+            color: var(--gh-yellow);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            background-color: var(--gh-yellow);
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 700;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(252, 209, 22, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: var(--light);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gh-green);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            padding: 30px 20px;
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gh-yellow);
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 20px;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 107, 63, 0.2);
+        }
+
+        .service-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .service-icon {
+            position: absolute;
+            top: -25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: var(--gh-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 107, 63, 0.4);
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 100px 20px;
+            background: linear-gradient(to bottom right, var(--gh-green), var(--gh-red));
+            color: white;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .calculator-content {
+            padding-right: 30px;
+        }
+
+        .calculator-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .calculator-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .calculator-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-box h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--gh-green);
+            outline: none;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--gh-yellow);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .calculate-btn:hover {
+            background: #e6c200;
+            transform: translateY(-3px);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--dark);
+            border-left: 4px solid var(--gh-yellow);
+        }
+
+        .result h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gh-green);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 20px;
+            background: var(--light);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 107, 63, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-top: 30px;
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, var(--light) 50%, white 50%);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .faq-question i {
+            color: var(--gh-green);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            padding: 10px 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gh-green);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gh-yellow);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--gh-yellow);
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gh-yellow);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gh-yellow);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            height: 85%;
+            overflow: auto;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--gh-green);
+            transition: all 0.3s;
+        }
+
+        .close-button:hover {
+            color: var(--gh-red);
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--gh-green);
+        }
+
+        .modal-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .order-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--gh-green);
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            padding: 14px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--gh-green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 107, 63, 0.1);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .calculator-content {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .emergency-contact {
+                margin-top: 15px;
+            }
+            
+            .hero {
+                margin-top: 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 90vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                display: block;
+                width: 100%;
+                margin: 10px auto;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-tint"></i>
+                <span>APPI</span> Water Supply
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+233551007133" class="emergency-contact">
+                <i class="fas fa-phone-alt"></i> +233 55 100 7133
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Reliable Water Supply for <span>Accra & Beyond</span></h1>
+            <p>24/7 Premium Water Delivery Services for Residential, Commercial and Industrial Needs</p>
+            <button class="cta-button" onclick="showModal()">Order Water Now</button>
+            <button class="cta-button secondary" onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})">Estimate Cost</button>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-truck-water"></i>
+                <div class="number">24/7</div>
+                <p>Service Availability</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div class="number">5,000+</div>
+                <p>Satisfied Customers</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <div class="number">Accra</div>
+                <p>Based in Ghana</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-glass-whiskey"></i>
+                <div class="number">10M+</div>
+                <p>Gallons Delivered</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-title">
+            <h2>Our Water Supply Solutions</h2>
+            <p>Premium water delivery services tailored to your specific needs</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('images/add1.png')"></div>
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Domestic Use</h3>
+                    <p>Safe drinking water for homes, apartments, and residential complexes with regular delivery schedules and emergency service options.</p>
+                    <button class="cta-button secondary" style="padding: 10px 25px; font-size: 1rem;" onclick="showModal()">Order Now</button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('images/add2.jpg')"></div>
+                <div class="service-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Industrial Supply</h3>
+                    <p>High-volume water solutions for manufacturing plants, processing facilities, and industrial operations with custom delivery plans.</p>
+                    <button class="cta-button secondary" style="padding: 10px 25px; font-size: 1rem;" onclick="showModal()">Order Now</button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('images/add3.jpg')"></div>
+                <div class="service-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Construction Needs</h3>
+                    <p>Bulk water supply for concrete mixing, dust control, compaction, and other construction site requirements with flexible scheduling.</p>
+                    <button class="cta-button secondary" style="padding: 10px 25px; font-size: 1rem;" onclick="showModal()">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-container">
+            <div class="calculator-content">
+                <h2>Estimate Your Water Needs</h2>
+                <p>Use our calculator to get an instant quote for your water delivery requirements. Our transparent pricing ensures you know exactly what to expect.</p>
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; margin-top: 30px;">
+                    <h3><i class="fas fa-tint"></i> Water Quality Guarantee</h3>
+                    <p>All our water meets or exceeds Ghana Water Company standards with regular testing and certification for purity and safety.</p>
+                </div>
+            </div>
+            
+            <div class="calculator-box">
+                <h3>Water Delivery Calculator</h3>
+                <div class="form-group">
+                    <label for="usageType">Usage Type</label>
+                    <select id="usageType">
+                        <option value="domestic">Domestic/Residential</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="construction">Construction</option>
+                        <option value="emergency">Emergency Supply</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="waterAmount">Water Amount (Gallons)</label>
+                    <input type="number" id="waterAmount" min="100" max="10000" value="1000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="deliveryFrequency">Delivery Frequency</label>
+                    <select id="deliveryFrequency">
+                        <option value="single">Single Delivery</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Bi-Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculatePrice()">
+                    <i class="fas fa-calculator"></i> Calculate Price
+                </button>
+                
+                <div class="result" id="result">
+                    <h4>Estimated Cost</h4>
+                    <p id="priceResult">GH₵ 0.00</p>
+                    <p style="font-size: 1rem; margin-top: 10px;">Includes delivery and service fee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+            <p>Trusted by homeowners, businesses, and contractors across Accra</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "APPI has been our go-to water supplier for three construction projects now. Their reliability and competitive pricing have saved us both time and money. Highly recommend for any construction company!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('images/p2.jpg')"></div>
+                        <div class="author-info">
+                            <h4>Michael Mensah</h4>
+                            <p>Project Manager, BuildRight Construction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "During the water shortage in our neighborhood, APPI delivered emergency water within 2 hours. Their service was prompt, professional, and the water quality was excellent. Lifesavers!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('images/p1.jpg')"></div>
+                        <div class="author-info">
+                            <h4>Sarah Agyemang</h4>
+                            <p>Homeowner, East Legon</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "As a manufacturing plant, our water needs are critical. APPI's industrial water supply service has never let us down. Their dedicated account manager ensures we always have what we need when we need it."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('images/p3.jpg')"></div>
+                        <div class="author-info">
+                            <h4>David Ofori</h4>
+                            <p>Operations Director, Precision Manufacturing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about our water delivery services</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item active">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How quickly can you deliver water in an emergency?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>For emergency situations in Accra, we guarantee delivery within 2-4 hours. We maintain a fleet of dedicated emergency response vehicles ready to deploy 24/7. Simply call our emergency hotline at +233 55 100 7133 and we'll dispatch immediately.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What quality standards does your water meet?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>All our water meets or exceeds Ghana Water Company standards. We perform regular testing for purity, contaminants, and mineral content. Our industrial water meets specific industry requirements. Certificates of analysis are available upon request.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you offer scheduled delivery services?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer flexible scheduled delivery options including weekly, bi-weekly, and monthly service. We work with you to create a delivery schedule that matches your consumption patterns. Our automated reminder system ensures you never run out of water.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What payment methods do you accept?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept mobile money (MTN, Vodafone, AirtelTigo), bank transfers, and cash on delivery. For commercial accounts, we offer monthly billing with approved credit. Online payments can be made through our secure payment portal.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Can I track my delivery in real-time?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All our delivery vehicles are equipped with GPS tracking. Once your order is dispatched, you'll receive a text message with a link to track your delivery in real-time on a map. You'll also receive an ETA update 30 minutes before arrival.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About APPI Water</h3>
+                <p>Providing reliable water supply solutions to Accra and surrounding areas since 2010. We're committed to delivering high-quality water with exceptional service for all your needs.</p>
+                <div class="social-links">
+                    <a href="mailto:appiwatersupplyservice@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/appiwatersupply" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/+233551007133" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/appiwatersupplyservice"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@appiwatersupply"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Pricing Calculator</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Information</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Capital Hills - Accra, Ghana</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+233 55 100 7133</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+233 55 483 2715</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+233 24 408 6203</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>appiwatersupplyservice@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-instagram"></i>
+                        <span>@appiwatersupplyservice</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+233 55 100 7133</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 APPI Water Supply Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="hideModal()">&times;</span>
+            <div class="modal-title">
+                <h2>Place Your Water Order</h2>
+                <p>We'll deliver to you anywhere in Accra within hours</p>
+            </div>
+            
+            <form class="order-form" id="waterOrderForm">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email">
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="location">Delivery Location</label>
+                        <input type="text" id="location" placeholder="Address, Area, Landmark" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="waterType">Water Type</label>
+                        <select id="waterType" required>
+                            <option value="">Select Water Type</option>
+                            <option value="drinking">Drinking Water</option>
+                            <option value="industrial">Industrial Water</option>
+                            <option value="construction">Construction Water</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="quantity">Quantity (Gallons)</label>
+                        <input type="number" id="quantity" min="100" max="10000" value="500" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="deliveryDate">Preferred Delivery Date</label>
+                        <input type="date" id="deliveryDate" required>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="deliveryTime">Preferred Time</label>
+                        <select id="deliveryTime" required>
+                            <option value="morning">Morning (8am-12pm)</option>
+                            <option value="afternoon">Afternoon (12pm-4pm)</option>
+                            <option value="evening">Evening (4pm-8pm)</option>
+                            <option value="urgent">ASAP (Emergency)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="notes">Special Instructions</label>
+                    <textarea id="notes" rows="3" placeholder="Any special requirements or access instructions..."></textarea>
+                </div>
+                
+                <button type="button" class="whatsapp-btn" onclick="sendOrderViaWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Send Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set delivery date to tomorrow by default
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('deliveryDate').valueAsDate = tomorrow;
+        
+        // Modal functions
+        function showModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                hideModal();
+            }
+        }
+        
+        // Price calculator
+        function calculatePrice() {
+            const usageType = document.getElementById('usageType').value;
+            const waterAmount = parseInt(document.getElementById('waterAmount').value);
+            const frequency = document.getElementById('deliveryFrequency').value;
+            
+            // Prices in Ghana Cedis (GHS)
+            let pricePerGallon = 0.25;
+            
+            switch(usageType) {
+                case 'domestic':
+                    pricePerGallon = 0.30;
+                    break;
+                case 'industrial':
+                    pricePerGallon = 0.20;
+                    break;
+                case 'construction':
+                    pricePerGallon = 0.18;
+                    break;
+                case 'emergency':
+                    pricePerGallon = 0.35;
+                    break;
+            }
+            
+            // Apply frequency discount
+            if (frequency === 'weekly') {
+                pricePerGallon *= 0.9;
+            } else if (frequency === 'biweekly') {
+                pricePerGallon *= 0.92;
+            } else if (frequency === 'monthly') {
+                pricePerGallon *= 0.95;
+            }
+            
+            let basePrice = waterAmount * pricePerGallon;
+            let deliveryFee = frequency === 'single' ? 20 : 0;
+            let total = basePrice + deliveryFee;
+            
+            document.getElementById('priceResult').textContent = 'GH₵ ' + total.toFixed(2);
+        }
+        
+        // FAQ toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = 'none';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+        
+        // Initialize calculator
+        calculatePrice();
+        
+        // WhatsApp order function
+        function sendOrderViaWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            const waterType = document.getElementById('waterType').value;
+            const quantity = document.getElementById('quantity').value;
+            const deliveryDate = document.getElementById('deliveryDate').value;
+            const deliveryTime = document.getElementById('deliveryTime').value;
+            const notes = document.getElementById('notes').value;
+            
+            if (!name || !phone || !location || !waterType || !quantity) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Format the message
+            let message = `NEW WATER ORDER\n\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Phone:* ${phone}\n`;
+            if (email) message += `*Email:* ${email}\n`;
+            message += `*Delivery Location:* ${location}\n`;
+            message += `*Water Type:* ${waterType}\n`;
+            message += `*Quantity:* ${quantity} gallons\n`;
+            message += `*Delivery Date:* ${deliveryDate}\n`;
+            message += `*Delivery Time:* ${deliveryTime}\n`;
+            if (notes) message += `*Special Instructions:* ${notes}\n`;
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/233551007133?text=${encodedMessage}`;
+            
+            // Open in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Close modal after a delay
+            setTimeout(hideModal, 1000);
+        }
+    </script>
+</body>
+</html>
